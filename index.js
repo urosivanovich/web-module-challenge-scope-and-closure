@@ -156,22 +156,28 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(inningScoreCB, inningCB, numInnings) {
-  const scoreByInning = [];
-  let homeScore = 0;
-  let awayScore = 0;
+function scoreboard(inningScore, innings, number) {
+    let scoreArr = [];
 
-  for( let i = 0; i < numInnings; i++) {
-    const currentInning = inningScoreCB(inningCB);
+    awayScore = 0;
+    homeScore = 0;
 
-    homeScore = homeScore + currentInning.Home  
-    awayScore = awayScore + currentInning.Away
-    scoreByInning.push(`Inning ${i +1}: Away ${awayScore} - Home ${homeScore}`)
-  }
-  return scoreByInning;
+    for(let i=0; i < number; i++){
+      awayScore = inningScore(innings).Away
+      homeScore = inningScore(innings).Home
+      scoreArr.push(`Inning ${i + 1}: Away ${awayScore} - Home ${homeScore}`)
+    }
+    
+
+
+  
+
+
+  return scoreArr;
 }
 
-console.log(getInningScore, inning, 9);
+console.log(scoreboard(getInningScore,inning, 9))
+
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
